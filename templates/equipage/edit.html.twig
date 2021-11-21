@@ -3,11 +3,12 @@
 {% block title %}Edit Equipage{% endblock %}
 
 {% block body %}
-    <h1>Edit Equipage</h1>
+    <div class="text-center">
+        <h1 class="text-warning py-3">Oups! Je m'étais trompé de nom <i class="fas fa-user-edit"></i></h1></div>
+    <div class="p-3">{{ include('equipage/_form.html.twig', {'button_label': 'Mettre à jour'}) }}</div>
 
-    {{ include('equipage/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('equipage_index') }}">back to list</a>
-
-    {{ include('equipage/_delete_form.html.twig') }}
+    <a style="text-decoration: none;" class="p-3 text-danger" href="{{ path('equipage_index') }}"><i class="fas fa-arrow-left"></i> Retour à la liste des marins</a>
+<div class="row p-3">
+   Au final je ne l'aime pas trop celui-là {{ include('equipage/_delete_form.html.twig') }}
+</div>
 {% endblock %}

@@ -3,34 +3,42 @@
 {% block title %}Equipage index{% endblock %}
 
 {% block body %}
-    <div class="jumbotron py-5 text-center">
+    <div class="jumbotron py-5 text-center mb-5">
         <h1 class="display-4 mb-2">En route pour Colchide !</h1>
         <p class="lead">Ici seront référencés tous les candidats qui auront été retenus pour avoir l'honneur de nous accompagner</p>
 
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for equipage in equipages %}
-            <tr>
-                <td>{{ equipage.name }}</td>
-                <td>
-                    <a href="{{ path('equipage_show', {'id': equipage.id}) }}">show</a>
-                    <a href="{{ path('equipage_edit', {'id': equipage.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <h4 class="new text-center mb-4">
+        <i class="text-primary fas fa-user-plus"></i>    <a style="text-decoration: none;"href="{{ path('equipage_new') }}">Ajouter un nouveau marin</a>
+    </h4>
+<div class="row justify-content-center">
+<table class="table table-candidats ">
+    <thead class="thead-warning bg-warning">
+    <tr>
+        <th scope="col"><i class="fas fa-list-ol"></i></th>
+        <th scope="col">Nom</th>
+        <th class="th-action" scope="col">Actions</th>
 
-    <a href="{{ path('equipage_new') }}">Create new</a>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for equipage in equipages %}
+
+    <tr>
+        <th scope="row">{{ equipage.id }}</th>
+        <td>{{ equipage.name }}</td>
+        <td class="row">
+            <a class="col-1" href="{{ path('equipage_edit', {'id': equipage.id}) }}"><i class="text-warning fas fa-user-edit"></i></a>
+            <a class="col-1">{{ include('equipage/_delete_form.html.twig') }}</a>
+        </td>
+
+    </tr>
+    <tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
 {% endblock %}

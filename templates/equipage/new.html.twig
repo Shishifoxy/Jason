@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Equipage{% endblock %}
+{% block title %}Nouveau membre{% endblock %}
 
 {% block body %}
-    <h1>Create new Equipage</h1>
-
+    <div class="text-center">
+    <h1 class="text-warning py-3">Ajouter un membre à l'équipage <i class="fas fa-anchor"></i></h1></div>
+<div class="p-3">
     {{ include('equipage/_form.html.twig') }}
-
-    <a href="{{ path('equipage_index') }}">back to list</a>
+    </div>
+    <a style="text-decoration: none;" class="p-3 text-danger" href="{{ path('equipage_index') }}"><i class="fas fa-arrow-left"></i> Retour à la liste des marins</a>
 {% endblock %}

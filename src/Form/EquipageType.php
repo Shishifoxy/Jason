@@ -12,7 +12,11 @@ class EquipageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            ->add('name', null, array(
+                    'label' => 'Nom du candidat',
+                    'attr' => array('style' => 'width: 300px')
+                )
+            );
         ;
     }
 
