@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipage index{% endblock %}
+
+{% block body %}
+    <div class="jumbotron py-5 text-center">
+        <h1 class="display-4 mb-2">En route pour Colchide !</h1>
+        <p class="lead">Ici seront référencés tous les candidats qui auront été retenus pour avoir l'honneur de nous accompagner</p>
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for equipage in equipages %}
+            <tr>
+                <td>{{ equipage.name }}</td>
+                <td>
+                    <a href="{{ path('equipage_show', {'id': equipage.id}) }}">show</a>
+                    <a href="{{ path('equipage_edit', {'id': equipage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('equipage_new') }}">Create new</a>
+{% endblock %}
